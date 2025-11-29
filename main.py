@@ -1,5 +1,3 @@
-pip intstall pandas streamlit plotly seaborn matplotlib openpyxl
-
 import pandas as pd
 import streamlit as st
 import plotly.express as px
