@@ -1,5 +1,8 @@
 import pandas as pd
 import streamlit as st
+import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # Load data
 df = pd.read_excel('database.xlsx')
@@ -18,6 +21,12 @@ df_despesas['Valor'] = df_despesas['Valor'].abs()
 
 col1, col2 = st.columns(2)
 col3 = st.columns(1)
+
+fig_date = px.bar(df_despesas, x='Data', y='Valor',color='Categoria', title='Valor over Time')
+col1.plotly_chart(fig_date, use_container_width=True)
+
+fig_tipo = px.pie(df_despesas, values='Valor', names='Categoria', title='Distribution by Tipo')
+col2.plotly_chart(fig_tipo, use_container_width=True)
 
 fig_table = df_despesas[['Data', 'Categoria', 'Valor', 'Descrição']].sort_values(by='Data', ascending=True)
 col3[0].dataframe(fig_table, use_container_width=True)
