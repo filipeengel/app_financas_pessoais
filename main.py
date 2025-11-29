@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import seaborn as sns
 
 # Load data
 df = pd.read_excel('database.xlsx')
