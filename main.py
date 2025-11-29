@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import seaborn as sns
-import matplotlib.pyplot as plt
 
 # Load data
 df = pd.read_excel('database.xlsx')
